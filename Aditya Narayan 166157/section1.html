@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Salary Slip</title>
+	</head>
+	<body>
+		<h1>Employee Details</h1>
+		<form onsubmit="calculate()">
+		<p>
+			Title :
+					<select name="Title" id="select">
+					<option value="Title ">Title</option>
+					<option value="Mr ">Mr</option>
+					<option value="Mrs ">Mrs</option>
+					<option value="Ms ">Ms</option>
+				</select>
+		</p>
+		<p>
+			FirstName :
+			<input type="text"id="fname">
+		</p>
+		<p>
+			LastName :
+			<input type="text"id="lname">
+		</p>
+		<p>
+			Gross Salary :
+			<input type="text"class="gs">
+		</p>
+		<p>
+			Address :
+			<textarea name="Address"class="myTarea"cols="15"rows="2"></textarea>
+		</p>
+		<p>
+			<input type="submit"value="Salary Slip">
+		</p>
+		</form>
+		<script>
+			function calculate()
+			{
+				var t=document.getElementById('select').value;
+				var fn=document.getElementById('fname').value;
+				var ln=document.getElementById('lname').value;
+				var gs=document.getElementById('gs').value;
+				var tax;
+				var net=gs-((gs*10)/100);
+				document.write(t + fn+ln+ "&nbsp your net salary is: "+net);
+				if(fn.length()>15 || ln.length()>15)
+				{
+					alert("name should be less than 15 char");
+				}
+				if(gs<18000)
+				{
+					tax=0;
+				}
+				else if(gs>=18000 && gs<300000)
+				{
+					tax=10;
+				}
+				else if(gs>=300000 && gs<500000)
+				{
+					tax=20;
+				}
+				else if(gs>500000)
+				{
+					tax=30;
+				}
+				var net=gs-((gs*10)/100);
+				document.write(t + fn+ln+ "&nbsp your net salary is: "+net);
+			}
+		</script>
+	</body>
+</html>

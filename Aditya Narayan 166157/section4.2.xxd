@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/xmlschema">
+	<xs:element name="Employee_Code "type="number"/>
+	<xs:element name="Employee_Name "type="string"/>
+	<xs:element name="Date_Of_Joining "type="string"/>
+	<xs:element name="Salary "type="number"/>
+	<xs:element name="Grade "type="string"/>
+<xs:attribute name="Employee_Table" type="string"/>		
+	<xs:sequence>
+		<xs:element ref="Employee_Code "/>
+		<xs:element ref="Employee_Name "/>
+		<xs:element ref="Date_Of_Joining "/>
+		<xs:element ref="Salary "/>
+		<xs:element ref="Grade "/>
+	</xs:sequence>
+</xs.schema>

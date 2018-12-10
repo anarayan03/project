@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Employee_Table>
+	<Employee_id>
+		101
+		102
+	</Employee_id>
+	<Employee_Name>
+		ADITYA
+		SHUBHAM
+	</Employee_Name>
+	<Salary>
+		18000
+		18000
+	</Salary>
+	<Grade>
+		A
+		A
+	</Grade>
+	<MinSalary>
+		10000
+	</MinSalary>
+	<MaxSalary>
+		60000
+	</MaxSalary>
+</Employee_table>

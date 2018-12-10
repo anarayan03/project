@@ -1,0 +1,158 @@
+SQL> CREATE TABLE SALGRADE
+  2  (
+  3  GRADE CHAR(2) PRIMARY KEY,
+  4  MINSAL NUMBER, MAXSAL NUMBER
+  5  );
+
+Table created.
+
+SQL> INSERT INTO SALGRADE VALUES
+  2  (
+  3  '&GRADE',&MINSAL,&MAXSAL
+  4  );
+Enter value for grade: A
+Enter value for minsal: 10000
+Enter value for maxsal: 20000
+old   3: '&GRADE',&MINSAL,&MAXSAL
+new   3: 'A',10000,20000
+
+1 row created.
+
+SQL> /
+Enter value for grade: B
+Enter value for minsal: 20001
+Enter value for maxsal: 40000
+old   3: '&GRADE',&MINSAL,&MAXSAL
+new   3: 'B',20001,40000
+
+1 row created.
+
+SQL> /
+Enter value for grade: C
+Enter value for minsal: 40001
+Enter value for maxsal: 60000
+old   3: '&GRADE',&MINSAL,&MAXSAL
+new   3: 'C',40001,60000
+
+1 row created.
+
+SQL> SELECT * FROM SALGRADE;
+
+GR     MINSAL     MAXSAL
+-- ---------- ----------
+A       10000      20000
+B       20001      40000
+C       40001      60000
+
+SQL> CREATE TABLE EMPLOYEES
+  2  (
+  3  EMPLOYEE_CODE NUMBER PRIMARY KEY,
+  4  EMPLOYEE_NAME VARCHAR2(15),
+  5  DATE_OF_JOINING DATE,
+  6  EMPLOYEE_SALARY NUMBER,
+  7  GRADE CHAR(2),
+  8  FOREIGN KEY (GRADE) REFERENCES SALGRADE(GRADE)
+  9  );
+
+Table created.
+
+SQL> INSERT INTO EMPLOYEES VALUES
+  2  (
+  3  &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+  4  );
+Enter value for employee_code: 101
+Enter value for employee_name: PREETHAM
+Enter value for date_of_joining: 10-JAN-2010
+Enter value for employee_salary: 18000
+Enter value for grade: A
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 101,'PREETHAM','10-JAN-2010',18000,'A'
+
+1 row created.
+
+SQL> /
+Enter value for employee_code: 102
+Enter value for employee_name: AAKASH
+Enter value for date_of_joining: 10-NOV-2005
+Enter value for employee_salary: 48000
+Enter value for grade: C
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 102,'AAKASH','10-NOV-2005',48000,'C'
+
+1 row created.
+
+SQL> /
+Enter value for employee_code: 103
+Enter value for employee_name: KISHORE
+Enter value for date_of_joining: 19-DEC-2011
+Enter value for employee_salary: 21000
+Enter value for grade: B
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 103,'KISHORE','19-DEC-2011',21000,'B'
+
+1 row created.
+
+SQL> /
+Enter value for employee_code: 104
+Enter value for employee_name: REENA
+Enter value for date_of_joining: 23-JUN-2006
+Enter value for employee_salary: 42000
+Enter value for grade: C
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 104,'REENA','23-JUN-2006',42000,'C'
+
+1 row created.
+
+SQL> /
+Enter value for employee_code: 105
+Enter value for employee_name: KAILASH
+Enter value for date_of_joining: 5-FEB-2004
+Enter value for employee_salary: 46000
+Enter value for grade: C
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 105,'KAILASH','5-FEB-2004',46000,'C'
+
+1 row created.
+
+SQL> /
+Enter value for employee_code: 106
+Enter value for employee_name: SAHANA
+Enter value for date_of_joining: 18-NOV-2003
+Enter value for employee_salary: 52000
+Enter value for grade: C
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 106,'SAHANA','18-NOV-2003',52000,'C'
+
+1 row created.
+
+SQL> /
+Enter value for employee_code: 107
+Enter value for employee_name: KEERTHANA
+Enter value for date_of_joining: 25-JUL-2006
+Enter value for employee_salary: 27000
+Enter value for grade: B
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE'
+new   3: 107,'KEERTHANA','25-JUL-2006',27000,'B'
+
+1 row created.
+
+SQL> SELECT * FROM EMPLOYEES;
+
+EMPLOYEE_CODE EMPLOYEE_NAME   DATE_OF_J EMPLOYEE_SALARY GR
+------------- --------------- --------- --------------- --
+          101 PREETHAM        10-JAN-10           18000 A
+          102 AAKASH          10-NOV-05           48000 C
+          103 KISHORE         19-DEC-11           21000 B
+          104 REENA           23-JUN-06           42000 C
+          105 KAILASH         05-FEB-04           46000 C
+          106 SAHANA          18-NOV-03           52000 C
+          107 KEERTHANA       25-JUL-06           27000 B
+
+7 rows selected.
+
+SQL> CREATE SEQUENCE EMPLOYEE_CODE
+  2  START WITH 108;
+
+Sequence created.
+
+SQL>

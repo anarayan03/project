@@ -1,0 +1,29 @@
+SQL> ALTER TABLE EMPLOYEES ADD TITLE CHAR(3);
+
+Table altered.
+
+SQL> SELECT * FROM EMPLOYEES;
+
+EMPLOYEE_CODE EMPLOYEE_NAME   DATE_OF_J EMPLOYEE_SALARY GR TIT
+------------- --------------- --------- --------------- -- ---
+          101 PREETHAM        10-JAN-10           18000 A
+          102 AAKASH          10-NOV-05           48000 C
+          103 KISHORE         19-DEC-11           21000 B
+          104 REENA           23-JUN-06           42000 C
+          105 KAILASH         05-FEB-04           46000 C
+          106 SAHANA          18-NOV-03           52000 C
+          107 KEERTHANA       25-JUL-06           27000 B
+
+7 rows selected.
+
+SQL> 1  SELECT COUNT(*) FROM EMPLOYEES
+  2  WHERE EMPLOYEE_SALARY >
+  3  (
+  4  SELECT AVG(EMPLOYEE_SALARY)
+  5  FROM EMPLOYEES
+  6* )
+SQL> /
+
+  COUNT(*)
+----------
+         4

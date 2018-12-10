@@ -1,0 +1,31 @@
+SQL> INSERT INTO EMPLOYEES VALUES
+  2  (
+  3  &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE','&TITLE'
+  4  );
+Enter value for employee_code: 108
+Enter value for employee_name: ADITYA
+Enter value for date_of_joining: 14-NOV-2018
+Enter value for employee_salary: 17000
+Enter value for grade: A
+Enter value for title: ANL
+old   3: &EMPLOYEE_CODE,'&EMPLOYEE_NAME','&DATE_OF_JOINING',&EMPLOYEE_SALARY,'&GRADE','&TITLE'
+new   3: 108,'ADITYA','14-NOV-18',17000,'A','ANL'
+
+1 row created.
+
+SQL> SELECT * FROM EMPLOYEES;
+
+EMPLOYEE_CODE EMPLOYEE_NAME   DATE_OF_J EMPLOYEE_SALARY GR TIT
+------------- --------------- --------- --------------- -- ---
+          101 PREETHAM        10-JAN-10           18000 A
+          102 AAKASH          10-NOV-05           48000 C
+          103 KISHORE         19-DEC-11           21000 B
+          104 REENA           23-JUN-06           42000 C
+          105 KAILASH         05-FEB-04           46000 C
+          106 SAHANA          18-NOV-03           52000 C
+          107 KEERTHANA       25-JUL-06           27000 B
+          108 ADITYA          14-NOV-18           17000 A  ANL
+
+8 rows selected.
+
+SQL>

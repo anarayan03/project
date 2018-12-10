@@ -1,0 +1,254 @@
+SQL> DECLARE
+  2  V_Sample1 NUMBER(2);
+  3  V_Sample2 CONSTANT NUMBER(2) ;
+  4  V_Sample3 NUMBER(2) NOT NULL ;
+  5  V_Sample4 NUMBER(2) := 50;
+  6  V_Sample5 NUMBER(2) DEFAULT 25;
+  7  /
+V_Sample5 NUMBER(2) DEFAULT 25;
+                              *
+ERROR at line 6:
+ORA-06550: line 6, column 31: 
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the following: 
+begin function package pragma procedure subtype type use 
+<an identifier> <a double-quoted delimited-identifier> form 
+current cursor 
+
+
+SQL> <<OUTER>>
+  2  DECLARE
+  3    VAR_NUM1 NUMBER := 5;
+  4  BEGIN
+  5    <<INNER>>
+  6    DECLARE
+  7             VAR_NUM1 NUMBER := 10;
+  8    BEGIN
+  9             DBMS_OUTPUT.PUT_LINE('VALUE FOR VAR_NUM1:' || VAR_NUM1);
+ 10             --CAN OUTER BLOCK VARIABLE (VAR_NUM1) BE PRINTED HERE.IFYES,PRINT THE SAME.
+ 11             DBMS_OUTPUT.PUT_LINE('THIS IS OUTER VARIABLE
+ 12             :'||OUTER.VAR_NUM1);
+ 13  END;
+ 14  END;
+ 15  /
+
+PL/SQL procedure successfully completed.
+
+SQL> SET SERVEROUTPUT ON;
+SQL> <<OUTER>>
+  2  DECLARE
+  3    VAR_NUM1 NUMBER := 5;
+  4  BEGIN
+  5    <<INNER>>
+  6    DECLARE
+  7              VAR_NUM1 NUMBER := 10;
+  8     BEGIN
+  9            DBMS_OUTPUT.PUT_LINE('VALUE FOR VAR_NUM1:' || VAR_NUM1);
+ 10            --CAN OUTER BLOCK VARIABLE (VAR_NUM1) BE PRINTED HERE.IFYES,PRINT THE SAME.
+ 11            DBMS_OUTPUT.PUT_LINE('THIS IS OUTER VARIABLE:'||OUTER.VAR_NUM1);
+ 12  END;
+ 13  END;
+ 14  /
+VALUE FOR VAR_NUM1:10                                                                                                   
+THIS IS OUTER VARIABLE:5                                                                                                
+
+PL/SQL procedure successfully completed.
+
+SQL> DECLARE
+  2  V_EMPNO EMP.EMPNO%TYPE;
+  3  V_ENAME EMP.ENAME%TYPE;
+  4  V_JOB EMP.JOB%TYPE;
+  5  V_MGR EMP.MGR%TYPE;
+  6  V_HIREDATE EMP.HIREDATE_TYPE;
+  7  V_SAL EMP.SAL%TYPE;
+  8  V_COMM EMP.COMM%TYPE;
+  9  V_DEPTNO EMP.DEPTNO%TYPE;
+ 10  BEGIN
+ 11    SELECT * INTO V_EMPNO,V_ENAME,V_JOB,V_MGR,V_HIREDATE,V_SAL,V_COMM,V_DEPTNO FROM EMP
+ 12    WHERE EMPNO=7369;
+ 13    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NUMBER: '||V_EMPNO);
+ 14    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NAME: '||V_ENAME);
+ 15    DBMS_OUTPUT.PUT_LINE('EMPLOYEE JOB: '||V_JOB);
+ 16    DBMS_OUTPUT.PUT_LINE('EMPLOYEE MANAGER: '||V_MGR);
+ 17    DBMS_OUTPUT.PUT_LINE('EMPLOYEE HIREDATE: '||V_HIREDATE);
+ 18    DBMS_OUTPUT.PUT_LINE('EMPLOYEE SALARY: '||V_SAL);
+ 19    DBMS_OUTPUT.PUT_LINE('EMPLOYEE COMMISSION: '||V_COMM);
+ 20    DBMS_OUTPUT.PUT_LINE('EMPLOYEE DEPT NUM: '||V_DEPTNO);
+ 21  END;
+ 22  /
+V_HIREDATE EMP.HIREDATE_TYPE;
+               *
+ERROR at line 6:
+ORA-06550: line 6, column 16: 
+PLS-00302: component 'HIREDATE_TYPE' must be declared 
+ORA-06550: line 6, column 12: 
+PL/SQL: Item ignored 
+ORA-06550: line 11, column 45: 
+PLS-00320: the declaration of the type of this expression is incomplete or malformed 
+ORA-06550: line 11, column 78: 
+PL/SQL: ORA-00904: : invalid identifier 
+ORA-06550: line 11, column 3: 
+PL/SQL: SQL Statement ignored 
+ORA-06550: line 17, column 47: 
+PLS-00320: the declaration of the type of this expression is incomplete or malformed 
+ORA-06550: line 17, column 3: 
+PL/SQL: Statement ignored 
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2    V_EMPNO EMP.EMPNO%TYPE;
+  3    V_ENAME EMP.ENAME%TYPE;
+  4    V_JOB EMP.JOB%TYPE;
+  5    V_MGR EMP.MGR%TYPE;
+  6    V_HIRE_DATE EMP.HIRE_DATE%TYPE;
+  7    V_SAL EMP.SAL%TYPE;
+  8    V_COMM EMP.COMM%TYPE;
+  9    V_DEPTNO EMP.DEPTNO%TYPE;
+ 10  BEGIN
+ 11    SELECT * INTO V_EMPNO,V_ENAME,V_JOB,V_MGR,V_HIRE_DATE,V_SAL,V_COMM,V_DEPTNO FROM EMP
+ 12    WHERE EMPNO=7369;
+ 13    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NUMBER: '||V_EMPNO);
+ 14    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NAME: '||V_ENAME);
+ 15    DBMS_OUTPUT.PUT_LINE('EMPLOYEE JOB: '||V_JOB);
+ 16    DBMS_OUTPUT.PUT_LINE('EMPLOYEE MANAGER: '||V_MGR);
+ 17    DBMS_OUTPUT.PUT_LINE('EMPLOYEE HIREDATE: '||V_HIRE_DATE);
+ 18    DBMS_OUTPUT.PUT_LINE('EMPLOYEE SALARY: '||V_SAL);
+ 19    DBMS_OUTPUT.PUT_LINE('EMPLOYEE COMMISSION: '||V_COMM);
+ 20    DBMS_OUTPUT.PUT_LINE('EMPLOYEE DEPT NUM: '||V_DEPTNO);
+ 21* END;
+SQL> /
+  V_HIRE_DATE EMP.HIRE_DATE%TYPE;
+                  *
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2    V_EMPNO EMP.EMPNO%TYPE;
+  3    V_ENAME EMP.ENAME%TYPE;
+  4    V_JOB EMP.JOB%TYPE;
+  5    V_MGR EMP.MGR%TYPE;
+  6    V_HIREDATE EMP.HIREDATE%TYPE;
+  7    V_SAL EMP.SAL%TYPE;
+  8    V_COMM EMP.COMM%TYPE;
+  9    V_DEPTNO EMP.DEPTNO%TYPE;
+ 10  BEGIN
+ 11    SELECT * INTO V_EMPNO,V_ENAME,V_JOB,V_MGR,V_HIREDATE,V_SAL,V_COMM,V_DEPTNO FROM EMP
+ 12    WHERE EMPNO=7369;
+ 13    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NUMBER: '||V_EMPNO);
+ 14    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NAME: '||V_ENAME);
+ 15    DBMS_OUTPUT.PUT_LINE('EMPLOYEE JOB: '||V_JOB);
+ 16    DBMS_OUTPUT.PUT_LINE('EMPLOYEE MANAGER: '||V_MGR);
+ 17    DBMS_OUTPUT.PUT_LINE('EMPLOYEE HIREDATE: '||V_HIREDATE);
+ 18    DBMS_OUTPUT.PUT_LINE('EMPLOYEE SALARY: '||V_SAL);
+ 19    DBMS_OUTPUT.PUT_LINE('EMPLOYEE COMMISSION: '||V_COMM);
+ 20    DBMS_OUTPUT.PUT_LINE('EMPLOYEE DEPT NUM: '||V_DEPTNO);
+ 21* END;
+SQL> /
+EMPLOYEE NUMBER: 7369                                                                                                   
+EMPLOYEE NAME: SMITH                                                                                                    
+EMPLOYEE JOB: CLERK                                                                                                     
+EMPLOYEE MANAGER: 7902                                                                                                  
+EMPLOYEE HIREDATE: 17-DEC-80                                                                                            
+EMPLOYEE SALARY: 800                                                                                                    
+EMPLOYEE COMMISSION:                                                                                                    
+EMPLOYEE DEPT NUM: 20                                                                                                   
+
+PL/SQL procedure successfully completed.
+
+SQL> DECLARE
+  2    V_EMPNO EMP.EMPNO%TYPE;
+  3    V_ENAME EMP.ENAME%TYPE;
+  4    V_JOB EMP.JOB%TYPE;
+  5    V_MGR EMP.MGR%TYPE;
+  6    V_HIREDATE EMP.HIREDATE%TYPE;
+  7    V_SAL EMP.SAL%TYPE;
+  8    V_COMM EMP.COMM%TYPE;
+  9    V_DEPTNO EMP.DEPTNO%TYPE;
+ 10    V_DEPT_NAME DEPARTMENT_MASTER.DEPT_NAME%TYPE;
+ 11    V_DEPT_CODE DEPARTMENT_MASTER.DEPT_CODE%TYPE;
+ 12  BEGIN
+ 13    V_ENAME:='&V_ENAME';
+ 14    SELECT EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPT_NAME
+ 15    INTO V_EMPNO,V_ENAME,V_JOB,V_MGR,V_HIREDATE,V_SAL,V_COMM,V_DEPT_NAME
+ 16    FROM EMP,DEPARTMENT_MASTER
+ 17    WHERE ENAME=V_ENAME AND DEPTNO=DEPT_CODE;
+ 18  IF V_COMM IS NULL THEN
+ 19  RAISE EXC;
+ 20  ELSE
+ 21    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NUMBER: '||V_EMPNO);
+ 22    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NAME: '||V_ENAME);
+ 23    DBMS_OUTPUT.PUT_LINE('EMPLOYEE JOB: '||V_JOB);
+ 24    DBMS_OUTPUT.PUT_LINE('EMPLOYEE MANAGER: '||V_MGR);
+ 25    DBMS_OUTPUT.PUT_LINE('EMPLOYEE HIREDATE: '||V_HIREDATE);
+ 26    DBMS_OUTPUT.PUT_LINE('EMPLOYEE SALARY: '||V_SAL);
+ 27    DBMS_OUTPUT.PUT_LINE('EMPLOYEE COMMISSION: '||V_COMM);
+ 28    DBMS_OUTPUT.PUT_LINE('EMPLOYEE DEPT NAME: '||V_DEPT_NAME);
+ 29  END IF;
+ 30  EXCEPTION
+ 31  WHEN EXC THEN
+ 32    DBMS_OUTPUT.PUT_LINE('ERROR COMMISSION IS NULL');
+ 33  END;
+ 34  /
+Enter value for v_ename: SMITH
+old  13:   V_ENAME:='&V_ENAME';
+new  13:   V_ENAME:='SMITH';
+RAISE EXC;
+      *
+ERROR at line 19:
+ORA-06550: line 19, column 7: 
+PLS-00201: identifier 'EXC' must be declared 
+ORA-06550: line 19, column 1: 
+PL/SQL: Statement ignored 
+ORA-06550: line 31, column 6: 
+PLS-00201: identifier 'EXC' must be declared 
+ORA-06550: line 0, column 0: 
+PL/SQL: Compilation unit analysis terminated 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  DECLARE
+  2    V_EMPNO EMP.EMPNO%TYPE;
+  3    V_ENAME EMP.ENAME%TYPE;
+  4    V_JOB EMP.JOB%TYPE;
+  5    V_MGR EMP.MGR%TYPE;
+  6    V_HIREDATE EMP.HIREDATE%TYPE;
+  7    V_SAL EMP.SAL%TYPE;
+  8    V_COMM EMP.COMM%TYPE;
+  9    V_DEPTNO EMP.DEPTNO%TYPE;
+ 10    V_DEPT_NAME DEPARTMENT_MASTER.DEPT_NAME%TYPE;
+ 11    V_DEPT_CODE DEPARTMENT_MASTER.DEPT_CODE%TYPE;
+ 12  EXC EXCEPTION;
+ 13  BEGIN
+ 14    V_ENAME:='&V_ENAME';
+ 15    SELECT EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPT_NAME
+ 16    INTO V_EMPNO,V_ENAME,V_JOB,V_MGR,V_HIREDATE,V_SAL,V_COMM,V_DEPT_NAME
+ 17    FROM EMP,DEPARTMENT_MASTER
+ 18    WHERE ENAME=V_ENAME AND DEPTNO=DEPT_CODE;
+ 19  IF V_COMM IS NULL THEN
+ 20  RAISE EXC;
+ 21  ELSE
+ 22    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NUMBER: '||V_EMPNO);
+ 23    DBMS_OUTPUT.PUT_LINE('EMPLOYEE NAME: '||V_ENAME);
+ 24    DBMS_OUTPUT.PUT_LINE('EMPLOYEE JOB: '||V_JOB);
+ 25    DBMS_OUTPUT.PUT_LINE('EMPLOYEE MANAGER: '||V_MGR);
+ 26    DBMS_OUTPUT.PUT_LINE('EMPLOYEE HIREDATE: '||V_HIREDATE);
+ 27    DBMS_OUTPUT.PUT_LINE('EMPLOYEE SALARY: '||V_SAL);
+ 28    DBMS_OUTPUT.PUT_LINE('EMPLOYEE COMMISSION: '||V_COMM);
+ 29    DBMS_OUTPUT.PUT_LINE('EMPLOYEE DEPT NAME: '||V_DEPT_NAME);
+ 30  END IF;
+ 31  EXCEPTION
+ 32  WHEN EXC THEN
+ 33    DBMS_OUTPUT.PUT_LINE('ERROR COMMISSION IS NULL');
+ 34* END;
+SQL> /
+Enter value for v_ename: SMITH
+old  14:   V_ENAME:='&V_ENAME';
+new  14:   V_ENAME:='SMITH';
+ERROR COMMISSION IS NULL                                                                                                
+
+PL/SQL procedure successfully completed.
+
+SQL> SPOOL OFF;

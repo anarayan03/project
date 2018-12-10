@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EMP_Table>
+
+	<EmpNo>7369</EmpNo>
+	
+	<ENAME>Smith</ENAME>
+	
+	<Job>Clerk</Job>
+	
+	<Mgr>7902</Mgr>	
+	
+	<HireDate>17-Dec-80</HireDate>
+	
+	<Sal>1100</Sal>
+	
+	<Comm>200</Comm>
+	
+	<DeptNo>20</DeptNo>
+	
+	
+	<EmpNo>7499</EmpNo>
+	
+	<ENAME>Allen</ENAME>
+	
+	<Job>Salesman</Job>
+	
+	<Mgr>7698</Mgr>
+	
+	<HireDate>20-Feb-81</HireDate>
+	
+	<Sal>1600</Sal>
+	
+	<Comm>24820</Comm>
+	
+	<DeptNo>30</DeptNo>
+	
+	
+	<EmpNo>7521</EmpNo>
+	
+	<ENAME>Ward</ENAME>
+	
+	<Job>Salesman</Job>
+	
+	<Mgr>7698</Mgr>
+	
+	<HireDate>22-Feb-81</HireDate>
+	
+	<Sal>1375</Sal>
+
+	<Comm>19700</Comm>
+	
+	<DeptNo>20</DeptNo>
+	
+	
+	<EmpNo>7566</EmpNo>
+	
+	<ENAME>Jones</ENAME>
+	
+	<Job>Manager</Job>
+	
+	<Mgr>7839</Mgr>
+	
+	<HireDate>02-Apr-81</HireDate>
+	
+	<Sal>3175</Sal>
+
+	<Comm></Comm>
+	
+	<DeptNo>20</DeptNo>
+	
+	
+	<EmpNo>7654</EmpNo>
+	
+	<ENAME>Martin</ENAME>
+	
+	<Job>Salesman</Job>
+	
+	<Mgr>7698</Mgr>
+	
+	<HireDate>28-Sep-81</HireDate>
+	
+	<Sal>1375</Sal>
+
+	<Comm>20600</Comm>
+	
+	<DeptNo>30</DeptNo>
+	
+	
+	<EmpNo>7698</EmpNo>
+	
+	<ENAME>Blake</ENAME>
+	
+	<Job>Manager</Job>
+	
+	<Mgr>7839</Mgr>
+	
+	<HireDate>01-May-81</HireDate>
+	
+	<Sal>2850</Sal>
+
+	<Comm></Comm>
+	
+	<DeptNo>30</DeptNo>
+	
+	
+	<EmpNo>7782</EmpNo>
+	
+	<ENAME>Clark</ENAME>
+	
+	<Job>Manager</Job>
+	
+	<Mgr>7839</Mgr>
+	
+	<HireDate>09-jun-80</HireDate>
+	
+	<Sal>2450</Sal>
+
+	<Comm></Comm>
+	
+	<DeptNo>10</DeptNo>
+	
+	
+</EMP_Table>

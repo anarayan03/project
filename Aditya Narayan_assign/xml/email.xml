@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<email>
+	<to>To</to>
+	<from>From</from>
+	<cc>C.C</cc>
+	<bcc>B.C.C</bcc>
+	<subject>Subject</subject>
+	<body>Body</body>
+</email>

@@ -1,0 +1,783 @@
+dq1
+
+Q.1 SELECT dept_code, staff_name, staff_sal
+FROM Staff_Master 
+ORDER BY dept_code, staff_sal
+
+What is true regarding the above query?
+1). Sorts the records based on dept_code
+2). Sorts the records based on staff_sal and then dept_code
+3). Sorts the records based on staff_sal
+4). Sorts the records based on dept_code and then staff_sal
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+Q. 2 Which of the following group function will consider the null value
+1). COUNT(*)
+2). AVG(column_name)
+3). SUM(column_name)
+4). COUNT(column_name)
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+Q. 3 Evaluate this SQL statement
+
+SELECT emp.empno, (15*emp.sal) + (.5* emp.comm) + (.35* emp.sal) AS CALC_VALUE FROM emp;
+
+What will happen if you remove all the parentheses from the calculation?
+1). The value displayed in the CALC_VALUE column will be lower than the one that we are getting with parenthesis.
+2). The value displayed in the CALC_VALUE column will be higher than the one that we 
+     are getting with parenthesis.
+3). There will be no difference in the values displayed in the CALC_VALUE column with 
+     or without parenthesis.
+4). An error will be reported if you remove the parenthesis from the calculation
+Solution :
+option [3] is correct
+Attempted :
+option [4] is attempted
+
+Q.5 Assuming today is Monday, 10 July 2000, what is returned by this statement: 
+SELECT to_char(NEXT_DAY(sysdate, 'MONDAY'), 'DD-MON-YY') FROM dual;     
+1). 17-Jul-00
+2). 17-JUL-00
+3). Jul-17-00
+4). 17-7-00
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+Q.6 Given the book_master table 
+            Book_code     Number(5) 
+             Book_Name   varchar2(40) 
+             Pub_year        number(4)
+
+       I would like to print a report classifying   the books  on the following basis 
+                 Publishing year                   Edition  
+                Between   1973 and 1999         "Old "
+                     >= 2000                            "New" 
+
+How   can I achieve this  ?
+1). Using a  CASE statement
+2). Using a WITH statement
+3). Using a DECODE  function
+4). Need to write a PL/SQL statement for  doing this
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+Q.7 I would like to find out number of employees in all departments, except department 10.  
+Smith writes the query below . Which of the following comments is most appropriate 
+for the query ?
+
+                SELECT  dept_code , count(staff_code)
+                FROM  staff_master 
+                GROUP BY dept_code 
+                HAVING dept_code <> 10
+1). Error : No need to use a having clause , WHERE clause can be used  instead
+               
+2). Query is perfect
+               
+3). Error : Condition is wrong , it should be 
+                          HAVING dept_code = 10
+               
+4). Error : HAVING  must have only an aggregating column
+               
+Solution :
+option [1] is correct
+Attempted :
+option [2] is attempted
+
+Q.8 Examine the data in the EMP table
+EMPNO ENAME DEPTNO MGR JOB SAL
+101 Smith 20 120 SA_REP 4000
+102 Martin 10 105 CLERK 2500
+103 Chris 20 120 IT_ADMIN 4200
+104 John 30 108 HR_CLERK 3500
+105 Diana 30 108 IT_ADMIN 5000
+106 Smith 40 110 AD_ASST 3000
+108 Jennifer 30 110 HR_DIR 6500
+110 Bob 40  EX_DIR 8000
+120 Ravi 20 110 SA_DIR 6500
+
+EMPNO is the primary key.  
+MGR is the ID of managers and refers to the EMPNO. 
+The JOB column is a NOT NULL .
+Identify the correct option/options to find department wise average salary for the employees 
+wherein employee's salary is in range of 3000 to 4000.
+1). SELECT  AVG(sal), deptno FROM emp WHERE sal BETWEEN 3000 and 4000
+2). SELECT AVG(sal), deptno FROM emp WHERE sal >= 3000 and sal <= 4000 GROUP BY deptno
+3). SELECT  AVG(sal), deptno FROM emp where sal  BETWEEN 4000 and 3000 GROUP BY deptno
+4). SELECT  AVG(sal), deptno FROM emp WHERE sal  BETWEEN 3000 and 4000 ORDER BY deptno, sal
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+Q.9 What would be the output of the following query? SELECT LPAD('SQL',5,'*') FROM DUAL
+1). *****SQL
+2). **SQL
+3). SQL**
+4). SQL*****
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+Q. Consider the following query:
+SELECT deptno,ename,sal FROM emp 
+ORDER By deptno, sal desc;
+
+What will be the output?
+1).  DEPTNO          ENAME    SAL
+ ----------        ----------      ----------
+         10      CLARK     2450
+        10       KING        5000 
+        20     JONES       2975       
+        20      SCOTT      3000
+        20      MILLER     3000        
+        30     WARD       1250
+        30     TURNER    1500
+        30     ALLEN       1600
+        30     BLAKE       2850
+
+ 
+        
+       
+2).     DEPTNO      ENAME    SAL
+----------        ----------      ----------
+        10       KING        5000
+        10      CLARK      2450
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        30     BLAKE       2850
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+       
+3).     DEPTNO        ENAME    SAL
+----------        ----------      ----------
+        30     BLAKE       2850
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        10       KING        5000
+        10      CLARK      2450
+       
+        
+       
+4).     DEPTNO       ENAME    SAL
+----------        ----------      ----------
+        10       KING        5000
+        20      SCOTT      3000
+        20      MILLER     3000
+        20     JONES       2975
+        30     BLAKE       2850
+        10      CLARK      2450        
+        30     ALLEN       1600
+        30     TURNER    1500 
+        30     WARD       1250
+       
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+DQ 2
+
+Q.1 Which option should be used to create a view only if the base tables exist?
+1). Replace
+2). Force
+3). NoForce
+4). With Check Option
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+Q.2 Which of the following statements are correct w.r.t database objects
+1). The value of sequencename.currval can be fetched before sequencename.nextval is issued
+2). Synonym for a procedure can be created
+3). It is possible to update all the tables on which the view is based
+4). Oracle automatically creates an index for every primary/unique key constraint declared
+Solution :
+option [2,4] are correct
+Attempted :
+option [2,4] are attempted
+
+Q.3 Which of the following are  in-correct w.r.t subquery ?
+1). Subquery can contain ORDER BY clause
+2). Subquery can contain GROUP BY clause
+3). Subquery can contain WHERE clause
+4). Subquery can contain AGGREGATE functions
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+Q. 4 Which are the valid multi row subquery operators ?
+1). =
+2). IN
+3). >
+4). >=ANY
+Solution :
+option [2,4] are correct
+Attempted :
+option [2,4] are attempted
+
+Q.5 Examine the structure of table EMP1:
+
+Name                Null?                       Type 
+EMPID              NOT NULL              NUMBER(2) 
+EMPNAME                                     VARCHAR2(10) 
+DEPTNO           NOT NULL               NUMBER(2)
+JOB                                                VARCHAR2(50)    
+
+SQL>alter table emp1 set unused (job, empname);
+
+What is true related to the above example?
+1). DESC EMP1; displays the structure of EMP1 table excluding the columns JOB and EMPNAME.
+2). Data dictionary USER_COL_TABS maintains information of the tables with columns 
+     marked as "unused"
+3). Marking the columns as unused release the space occupied by them back to the database
+4). None of the above. 
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q.6 Deletion of the database objects can be achieved using following command?
+1). DELETE
+2). TRUNCATE
+3). DROP
+4). All the above
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q.7 Which constraint cannot be applied as a table level constraint ?
+1). not null
+2). primary key
+3). foreign key
+4). unique
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+Q.8 See the below data.
+
+EMP_ID     DEPT_ID       COMMISSION
+
+1                  10                  500
+2                  20                  1000
+3                  10
+4                  10                  600
+5                  30                  800
+6                  30                  200
+7                  10
+8                  20                  300
+
+The COMMISSION column shows the monthly commission earned by the employee.
+Which of the tasks would require sub queries in order to be performed in a single step?
+1). deleting the records of employees who do not earn commission
+2). increasing the commission of employee 3 by the average commission earned in 
+     department 20
+3). finding the number of employees who do NOT  earn commission and are working 
+     for department 20
+4). inserting into the table a new employee 10 who works for department 20 and earns 
+     a commission that is equal to the commission earned by employee 3
+Solution :
+option [2,4] are correct
+Attempted :
+option [2,4] are attempted
+
+Q.9 Which of the following are in-correct w.r.t foreign key column values?
+1). Foreign key column can contain null values
+2). Foreign key column can contain duplicate values
+3). Foreign key column can contain values not present in its corresponding primary key column
+4). Foreign key column must contain values present in its corresponding primary key column
+5). Foreign key and the primary key it is referring to can be present in the same table
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+Q.10 Which of the following subquery is correct for displaying the employee name along with the hiredate of those employees who joined the organization earliest ?
+1). SELECT ename,hiredate FROM emp WHERE hiredate IN
+(SELECT min(hiredate) FROM emp )
+2). SELECT ename,hiredate FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp )
+3). SELECT ename FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp GROUP BY hiredate)
+4). SELECT ename FROM emp WHERE hiredate IN
+(SELECT max(hiredate) FROM emp GROUP BY empno)
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+DQ 3
+
+Q.1 Identify the correct option statements related to DELETE command.
+1). In DELETE command, if WHERE is omitted, all rows from the table are removed, 
+     and else all rows which satisfy the condition are removed.
+2). FROM clause is mandatory in DELETE statement
+3). WHERE clause is must in DELETE statement
+4). None of the above
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q.2 Identify the output of the given snippet. (Refer the line numbers which are given in the snippet.)
+
+1. DECLARE
+2. CURSOR cur1 IS SELECT * FROM emp;
+3. emprec emp%rowtype;
+4. BEGIN
+5. OPEN cur1;
+6. FETCH cur1 INTO emprec;
+7. WHILE(cur1%notfound)
+8. LOOP
+9. dbms_output.put_line(emprec.empno||' '||emprec.ename);
+10. FETCH cur1 INOT emprec;
+11. END LOOP;
+12. CLOSE cur1;
+13. END;
+1). Error: Multiple fetch in a single operation
+2). Error: Line 2
+3). All emp table data for two columns i.e. empno and ename is displayed as well as 
+     message ‘PL/SQL   procedure successfully completed.’ is displayed 
+4). Message ‘PL/SQL procedure successfully completed.’ is displayed only without any 
+     table rows as an output.
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q.3 Identify the output
+.
+.
+.
+IF NOT caller_cur%ISOPEN
+THEN
+   OPEN caller_cur;
+END IF;
+OPEN caller_cur;
+FETCH caller_cur INTO caller_rec;
+.
+.
+.
+1). PL/SQL Block successfully executed
+2). PL/SQL error: cursor already open
+3). If fetch will come before OPEN statement, there is no error
+4). PL/SQL error: attribute ISOPEN can not be used for caller_cur
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q. 4 Identify the correct statements regarding INSERT command:
+1). In INSERT command, values for the columns should match data types of the respective 
+     columns in a table.
+2). In INSERT command, all columns except those declared as"NOT NULL" should be 
+     supplied with values.
+3). INSERT command is available in data control language.
+4). None of the above
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q.5 Evaluate this PL/SQL block. Assume that there is no employee in EMP table that 
+belongs to deptno 100:
+
+set serveroutput on
+DECLARE
+v_result  number(2);
+BEGIN
+DELETE
+FROM emp
+WHERE deptno IN (100);
+v_result := SQL%ROWCOUNT;
+COMMIT;
+dbms_output.put_line(v_result);
+END;
+
+What will be the value of v_result if no rows are deleted?
+1). 0
+2). 1
+3). TRUE
+4). Null
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q.6 What is the output of the below snippet, assuming that emp table exists with columns empno, ename and sal?           
+
+DECLARE
+vemp emp%rowtype;
+BEGIN
+vemp.empno := 111;
+vemp.ename := 'tom';
+vemp.sal := 3000;
+UPDATE emp SET empno = vemp.empno,sal=40000 WHERE empno = 111;
+END;
+/
+1). PL/SQL procedure successfully completed. 
+2). Error: Use row Keyword in update statement to get the updations done
+3). Error: As it is rowtype, all fields should be set in update statement.
+4). Error: Variable declared as rowtype can not be updated using the given UPDATE statement.
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q. 7
+
+
+DECLARE 
+CURSOR mycur is SELECT empno,ename FROM EMP WHERE DEPTNO=&dno;
+var_empno emp.empno%type;
+var_ename emp.ename%type;
+BEGIN
+OPEN mycur;
+FETCH mycur INTO var_empno,var_ename;
+DBMS_OUTPUT.PUT_LINE(var_empno || var_ename);
+CLOSE mycur;
+END;
+
+
+What will be the output if deptno is entered as 99 which is not present in the table?
+1). NO_DATA_FOUND exception occurs
+2). INVALID_CURSOR exception occurs
+3). No exception occurs
+4). Compilation error occurs
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q.8 The given PL/SQL block is for deleting the salary of all staffs of designation code 12.
+Predict what is not correct          
+
+       DECLARE
+       cursor Staff_cursor   is
+       Select staff_code,desg_code,salary from staff_master where desg_code=12;
+               Emp_record staff_cursor%ROWTYPE;
+        BEGIN
+          Open staff_cursor ;
+            Loop 
+                   Fetch  staff_cursor into emp_record;
+                  Exit when staff_cursor%NOTFOUND;            
+                  If(emp_record.desg_code=12) then     
+                       Delete staff_master  where     staff_code=emp_record.staff_code 
+                  Endif;
+                 End Loop;
+            Exception
+                -- do something 
+         END:
+1). No need to use cursor variables , delete can be done in a single sql statement
+2). The above piece of code works perfectly without any issues
+3). Cursor Rowtype is an invalid data type
+4). Exception block is not needed
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q.9 You added a PHONE-NUMBER column of NUMBER data type to an existing EMPLOYEES table. 
+The EMPLOYEES table already contains records of 100 employees. Now, you want to enter the 
+phone numbers of each of the 100 employees into the table. Some of the employees may not have 
+a phone number available.
+
+Which data manipulation operation do you perform?
+1). ALTER
+2). INSERT 
+3). UPDATE
+4). You cannot enter the phone number for the existing employee records
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+Q.10 Evaluate this PL/SQL BLOCK
+DECLARE
+    V_count NUMBER (99);
+BEGIN
+     DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+       ........
+END;
+
+What should be done to display an error message when no records are deleted
+1). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+          IF SQL%NOTFOUND() THEN 
+                Dbms_output.put_line('No records deleted ');
+               
+2). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+          WHEN  NO_DATA_FOUND THEN
+                Dbms_output.put_line('No records deleted ');
+               
+3). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+          IF NO_DATA_FOUND THEN
+                Dbms_output.put_line('No records deleted ');
+               
+4). DELETE FROM Staff_Master Where Staff_code IN (100,101,102);
+         IF SQL%NOTFOUND THEN 
+               Dbms_output.put_line('No records deleted ');
+               
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+DQ 4
+
+
+Q.1 Consider the following code and determine the correct code for calling this function 
+
+CREATE OR REPLACE FUNCTION addNumbers(num1 in out number, num2 number) RETURN
+number as
+BEGIN
+num1:=num1+num2;
+RETURN num1;
+END;
+1). BEGIN
+addNumbers(10,20);
+END;
+2). DECLARE 
+ans number;
+BEGIN
+ans:=addNumbers(10,20);
+END;
+3). declare
+ans number;
+num1 number:=10;
+begin
+ans:=addNumbers(num1,20);
+end;
+/
+4). declare
+ans number;
+num1 number:=10;
+num2 number:=20;
+begin
+ans:=addNumbers(num1,num2);
+e
+Solution :
+option [3,4] are correct
+Attempted :
+option [3,4] are attempted
+
+
+Q.2 PL/SQL raises an exception, in which TWO of the following cases
+1). When a SELECT statement returns no rows 
+2). When a SELECT statement returns more than one row 
+3). When the datatypes of SELECT clause and INTO clause do not match 
+4). When INTO statement is missing in the SELECT statement 
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2] are attempted
+
+
+Q.3 Observe the following code and predict the ouput 
+
+CREATE OR REPLACE PROCEDURE PROC1(num1 NUMBER, num2 NUMBER) AS
+BEGIN
+num1:=num1+num2;
+DBMS_OUTPUT.PUT_LINE(num1);
+RETURN;
+END;
+/
+1). Compilation error : num1 cannot be used as assignment target
+2). Compilation succeeds if num1 is declared as OUT parameter
+3). Compilation succeeds if num1 is declared as IN parameter
+4). No compilation error
+Solution :
+option [1,2] are correct
+Attempted :
+option [1,2] are attempted
+
+
+Q.4 Observe the following code and predict the ouput 
+
+CREATE OR REPLACE PROCEDURE PROC1(num1 NUMBER, num2 NUMBER) AS
+result NUMBER;
+BEGIN
+result:=num1+num2;
+DBMS_OUTPUT.PUT_LINE(result);
+RETURN result;
+END;
+/
+1). Compilation error as RETURN statement cannot contain an expression
+2). Compilation succeeds and the value in result variable will be displayed
+3). Compilation will succeed if only RETURN is written instead of RETURN result;
+4). None of the above
+Solution :
+option [1,3] are correct
+Attempted :
+option [1,3] are attempted
+
+
+Q.5 Which of the statements are true about the following pl/sql block 
+   DECLARE 
+    V_STAFF_NO  NUMBER  := 600080'; 
+    V_EMP_NAME VARCHAR2(10); 
+
+ BEGIN 
+      SELECT staff_name  FROM STAFF_MASTER  WHERE STAFF_CODE = V_STAFF_NO ;
+      DBMS_OUTPUT.PUT_LINE('Employee name is ' || V_EMP_NAME); 
+
+EXCEPTION 
+
+WHEN NO_DATA_FOUND THEN 
+    DBMS_OUTPUT.PUT_LINE('No such employee: ' || Emp_number); 
+WHEN Others
+    DBMS_OUTPUT.PUT_LINE('some exception'); 
+
+END;
+1). Will show compilation error because into clause is missing
+2). Will print some exception message
+3). Will run successfully
+4). Will show a compilation error because V_EMP_NAME is not initialized
+Solution :
+option [1] is correct
+Attempted :
+option [1] is attempted
+
+
+Q.6 See the below snippet.
+CREATE PROCEDURE Create_Stud (rollno IN NUMBER, sname IN varchar2 DEFAULT 'aaa’) IS
+BEGIN
+INSERT INTO stus (rollnumber, studname)
+VALUES (rollno, sname);
+END;
+ 
+What will be the output if we call procedure as Create_Stud (10,’AMIT’);
+1). Procedure call will fail results in error 
+2). rollno will be 10 and sname will be ‘aaa’
+3). Error: Default Keyword is missing in procedure call
+4). rollno will be 10 and sname will be ‘AMIT’ 
+Solution :
+option [4] is correct
+Attempted :
+option [4] is attempted
+
+
+Q.7 If SELECT INTO statement does not return any row then the following exception 
+would be raised
+1). TOO_MANY_ROWS 
+2). NO_DATA_FOUND
+3). VALUE_ERROR
+4). INVALID_CURSOR
+Solution :
+option [2] is correct
+Attempted :
+option [2] is attempted
+
+
+Q.8 Assume that table ERRORS is having following structure:
+
+Name             Null?          Type
+-----------------------------------
+Errorno                            Number
+Errormess                        Char(100)
+
+Identify the erroneous line in the given code snippet. (Refer the line numbers which are given in the snippet.)
+
+ 1DECLARE
+ 2 Err_Num NUMBER ;
+ 3 Err_Msg CHAR(100);
+ 4 BEGIN
+ -------
+ ------
+ 5 EXCEPTION
+----------
+-------
+ 6 WHEN OTHERS THEN
+ 7 INSERT INTO errors VALUES (SQLCODE, SQLERRM);
+ 8 END;
+/
+1). line 2
+2). line 6
+3). line 7 
+4). no error
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q.9 See the below snippet
+
+CREATE OR REPLACE PROCEDURE Many_Params (
+mesg1 IN     VARCHAR2,
+mesg2 OUT    VARCHAR2,
+mesg3 IN OUT VARCHAR2) IS
+BEGIN
+  mesg2 := mesg1 || 'Parameter As The OUT';
+  mesg3 := mesg3 || 'Returned';
+END Many_Params;
+/
+DECLARE
+ iparm  VARCHAR2(50) := 'This is the IN ';
+ oparm  VARCHAR2(50);
+ ioparm VARCHAR2(50) := 'And This is the IN OUT '; 
+BEGIN
+  many_params(iparm, oparm, ioparm);
+  dbms_output.put_line(oparm || ' .’|| ioparm);
+END;
+/
+What is the output of the program?
+1). This is the IN Parameter As The OUT. And This is the IN OUT 
+2). Parameter As The OUT. And This is the IN OUT
+3). This is the IN Parameter As The OUT. And This is the IN OUT Returned
+4). This is the IN Parameter As The OUT Returned
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted
+
+
+Q.10 If there is a procedure called addNumbers already existing, what will be the output of the following code?
+
+CREATE OR REPLACE FUNCTION addNumbers(num1 in out number, num2 number) RETURN
+number as
+BEGIN
+num1:=num1+num2;
+RETURN num1;
+END;
+1). The procedure will get overwritten by this function
+2). There will be a procedure as well as a function with the same name, addNumbers
+3). Compilation error.  name is already used by an existing object
+4). None of the above
+Solution :
+option [3] is correct
+Attempted :
+option [3] is attempted

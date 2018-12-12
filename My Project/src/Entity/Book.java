@@ -3,17 +3,17 @@ package Entity;
 public class Book 
 {
 	
-	private int bookId;
+	private String bookId;
 	private String bookName;
 	private String authorName;
 	private int price;
 	private int quantity;
 	
-	public int getBookId(int i) {
+	public String getBookId(String i) {
 		//System.out.print(i);
 		return bookId;
 	}
-	public void setBookId(int bookId) {
+	public void setBookId(String bookId) {
 		this.bookId = bookId;
 	}
 	public String getBookName(String string) {

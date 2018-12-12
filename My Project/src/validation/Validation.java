@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class Validation
 {
 	
-	public boolean checkId(int id)
+	public boolean checkId(String id)
 	{
 		Pattern pattern = Pattern.compile("[0-9]{3}");
 		Matcher matcher = pattern.matcher(id);

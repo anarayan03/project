@@ -27,10 +27,10 @@ public class BookDatabase {
 			Scanner scanner = new Scanner(System.in);
 
 			System.out.println("Enter book id");
-			int id = scanner.nextInt();
+			String id = scanner.next();
 			if(validation.checkId(id))
 			{
-			preparedStatement.setInt(1, id);
+			preparedStatement.setString(1,id);
 			// book.setBookId(id);
 			}
 			else
